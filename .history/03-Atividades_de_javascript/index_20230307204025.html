@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Web 2 </h1>
+    <p>01 - Escreva uma função em Javascript que retorne uma String contendo uma sequência de
+        100 mensagens de texto repetidas e formatado em HTML. A mensagem é recebida por
+        parâmetro. Exemplo: “
+    <p>Alô Mundo 1</p>
+    <p>Alô Mundo 2</p>...”.
+    </p>
+    <p>Resposta:...</p>
+    <div class="atividade01"></div>
+    <script>
+        //Atividade 01
+        let output = '';
+        const div01 = document.querySelector('.atividade01');
+        for (let i = 0; i < 5; i++) {
+            console.log(i)
+            output += `<p>Hello World ${i + 1}</p>`
+        }
+        div01.innerHTML = output
+        // Forma corrigida (sem interface)
+
+
+    </script>
+</body>
+
+</html>
