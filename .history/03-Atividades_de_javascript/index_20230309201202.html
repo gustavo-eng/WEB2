@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <script src="atividade01.js"></script>
+
     <div class="atividade01"></div>
     <div class="atividade07">
         <h2>Atividade 07 - Funcao da Atv2 </h2>
@@ -26,19 +26,25 @@
                 <option value="/">Divisao</option>
             </select>
             <button class="botao"> Calcular </button>
-
             <p id="resultado"></p>
-            <p id="resultado2"></p>
         </form>
 
     </div>
     <script>
         //Atividade 07
+
+        //  var select = document.getElementById("marcas");
+        // var opcaoTexto = select.options[select.selectedIndex].text;
+
         const botao = document.querySelector('.botao');
+
+
         botao.addEventListener('click', (event) => {
             event.preventDefault();
-            var select = document.getElementById("op");
-            var op = select.options[select.selectedIndex].value;
+            const select = document.getElementById('op');
+
+            let op = select.getElementsByTagName('option').text
+
             let val1 = parseFloat(document.querySelector('#val1').value);
             let val2 = parseFloat(document.querySelector('#val2').value);
             const resultado = document.querySelector('#resultado');
@@ -49,20 +55,22 @@
             console.log('op:  ' + op);
             switch (op) {
                 case "+":
+                    console.log('Dentro do case +')
                     saida = val1 + val2
                     break;
                 case "-":
+                    console.log('Dentro do case -')
                     saida = val1 - val2
                     break;
                 case "*":
                     saida = val1 * val2
                     break;
                 default:
+                    console.log('Error da function ');
                     return null;
             }
-            document.querySelector('#resultado').innerHTML = `Resposta: ${saida}`
-            document.querySelector('#resultado2').innerHTML = retornarStrings();
-
+            console.log('resultado: ' + saida)
+            //return saida;
         })
 
     </script>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <script src="atividade01.js"></script>
+
     <div class="atividade01"></div>
     <div class="atividade07">
         <h2>Atividade 07 - Funcao da Atv2 </h2>
@@ -26,9 +26,7 @@
                 <option value="/">Divisao</option>
             </select>
             <button class="botao"> Calcular </button>
-
             <p id="resultado"></p>
-            <p id="resultado2"></p>
         </form>
 
     </div>
@@ -49,20 +47,21 @@
             console.log('op:  ' + op);
             switch (op) {
                 case "+":
+                    console.log('Dentro do case +')
                     saida = val1 + val2
                     break;
                 case "-":
+                    console.log('Dentro do case -')
                     saida = val1 - val2
                     break;
                 case "*":
                     saida = val1 * val2
                     break;
                 default:
+                    console.log('Error da function ');
                     return null;
             }
             document.querySelector('#resultado').innerHTML = `Resposta: ${saida}`
-            document.querySelector('#resultado2').innerHTML = retornarStrings();
-
         })
 
     </script>

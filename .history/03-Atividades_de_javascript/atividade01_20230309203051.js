@@ -1,4 +1,10 @@
-
+let output = '';
+const div01 = document.querySelector('.atividade01');
+for (let i = 0; i < 5; i++) {
+    console.log(i)
+    output += `<p>Hello World ${i + 1}</p>`
+}
+div01.innerHTML = output
 // Forma corrigida (sem interface)
 const retornarStrings = () => {
     let texto = ' '
@@ -13,6 +19,5 @@ const retornarStrings = () => {
 //teste
 // script.js
 function saudacao() {
-    return 'Ola mundo'
-    //alert("Olá, mundo!");
+    alert("Olá, mundo!");
 }

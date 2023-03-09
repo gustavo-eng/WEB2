@@ -13,6 +13,5 @@ const retornarStrings = () => {
 //teste
 // script.js
 function saudacao() {
-    return 'Ola mundo'
-    //alert("Olá, mundo!");
+    alert("Olá, mundo!");
 }

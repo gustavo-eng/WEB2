@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Web 2 </h1>
+    <p>01 - Escreva uma função em Javascript que retorne uma String contendo uma sequência de
+        100 mensagens de texto repetidas e formatado em HTML. A mensagem é recebida por
+        parâmetro. Exemplo: “
+    <p>Alô Mundo 1</p>
+    <p>Alô Mundo 2</p>...”.
+    </p>
+    <p>Resposta:...</p>
+    <br>
+    <br>
+    <p>
+        02 - Escreva uma função que receba 2 valores e uma operação básica: adição, subtração,
+        multiplicação e divisão e retorne o resultado da operação. Observação: Faça a validação para
+        prevenir a divisão por 0.
+
+    </p>
+    <div class="atividade01"></div>
+    <div class="atividade07">
+        <h2>Atividade 07 - Funcao da Atv2 </h2>
+        <form>
+            <label for="val1">Primeiro valor: </label>
+            <input type="number" name="val1" id="val1">
+            <label for="val2">Segundo valor: </label>
+            <input type="number" name="val2" id="val2">
+            <label for="operacao">Operação:</label>
+            <select id="operacao" name="operacao">
+                <option value="+">Soma</option>
+                <option value="-">Subtração</option>
+                <option value="*">Multiplicacao</option>
+                <option value="/">Divisao</option>
+            </select>
+            <button class="botao"> Calcular </button>
+            <p>Resuldado: <span class="resultado"> </span> </p>
+        </form>
+
+    </div>
+    <script>
+        //Atividade 07 
+        let val1 = parseFloat(document.querySelector('#val1').value);
+        let val2 = parseFloat(document.querySelector('#val2').value);
+        var operacao = document.getElementById("operacao").value;
+        const resultado = document.querySelector('.resultado');
+        const botao = document.querySelector('.botao');
+
+
+        const calc = (valor1, valor2, operacao) => {
+            let saida;
+            console.log('ENTROU NA FUNCTION')
+            console.log('Val1: ' + val1);
+            console.log('Val2: ' + val2);
+            console.log('op: ' + op);
+            switch (op) {
+                case "+":
+                    console.log('Pelo menos entrou na operacao')
+                    saida = val1 + val2
+                    break;
+                case "-":
+                    saida = val1 - val2
+                    break;
+                case "*":
+                    saida = val1 * val2
+                    break;
+                default:
+                    console.log('Error da function ');
+                    return null;
+            }
+            console.log('resultado: ' + saida)
+            //return saida;
+        }
+
+        botao.addEventListener('click', calc(val1, val2, operacao));
+
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- const calculadora = (val1, val2, op) => {
+    let saida;
+    switch (op) {
+        //basta colocar mais op e formulas nos cases 
+        case "+":
+            saida = val1 + val2
+            break;
+        case "-":
+            saida = val1 - val2
+            break;
+        case "*":
+            saida = val1 * val2
+            break;
+        default:
+            console.log('Error');
+            return null;
+    }
+    return saida;
+} -->
