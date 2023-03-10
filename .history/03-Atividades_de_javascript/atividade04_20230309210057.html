@@ -14,23 +14,18 @@
     <form>
         <label for="valor">Informe valor: </label>
         <input type="text" name="valor" id="valor" value="">
-        <button class="botao"> Invert </button>
+        <button onclick="show()"> Invert </button>
         <p id="resultado"></p>
         <p id="resultado2"></p>
     </form>
 
     <script>
-        const botao = document.querySelector(".botao")
-
-        botao.addEventListener('click', (event) => {
-            event.preventDefault();
+        let x = 0;
+        const show = () => {
             let resultado = document.querySelector("#valor").value
             document.querySelector("#resultado").innerHTML = inversao(resultado);
-        })
-
+        }
     </script>
-
-
 
 </body>
 
