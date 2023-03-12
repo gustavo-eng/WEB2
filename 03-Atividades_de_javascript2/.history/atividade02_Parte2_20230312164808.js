@@ -19,7 +19,7 @@ class Product {
 
     static buscarProduto(id) {
         return this.#list.find(element => element.id == id)
-    } // ok
+    }
 
 }
 
