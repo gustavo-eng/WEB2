@@ -10,7 +10,6 @@ function getRandomElements(items, count) {
     const shuffle = items.sort(() => 0.55 - Math.random());
     return shuffle.slice(0, count);  // Retorna os primeiros counts  itens 
 }
-console.log('Code Runner')
 
 fetch(url)
     .then((response) => response.json())
@@ -30,5 +29,4 @@ fetch(url)
         )
         console.log('Report --> ')
         console.warn(report)
-        console.log('Projeto executado com a extention codeRunner ')
     }).catch((err) => console.log('Erro gerado -> ' + err)).finally(() => console.log('Finalizado. Finally'))
