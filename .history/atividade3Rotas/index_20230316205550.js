@@ -65,7 +65,7 @@ app.get('/rotas/:palavra', (req, res) => {   // passar logica para uma funcao ex
         </div>
     `)
 })
- 
+
 
 
 
