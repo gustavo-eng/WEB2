@@ -50,7 +50,7 @@ app.get('/contas/:operacao', (req, res) => {
     res.send(`
         <div>
             Os dados passados foram x=${x} e y=${y}
-            A operacao foi de ${operacao}   
+            A operacao foi de ${operacao}  
             entao 
 
             <h1> ${x} ${operacao} ${y} = ${resultado}</h1>
@@ -72,14 +72,10 @@ usuário possui permissão de acesso, caso contrário informe que não possui.
 
 
 app.post('/', (req, res) => {
-    /* 
-    Nao precisa da interface, apenas usar o express.json e mandar as 
-    requisicoes no insomnia para verificar 
-    */
     const usuario = req.body.usuario;
     const senha = req.body.senha;
     if(senha != null && usuario != null) {
-        if (usuario === senha) {
+        if (usuario.includes(senha) && senha != "") {
             res.send('Usuário possui permissão de acesso');
             } else {
             res.send('Usuário não possui permissão de acesso');

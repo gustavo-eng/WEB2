@@ -79,7 +79,7 @@ app.post('/', (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
     if(senha != null && usuario != null) {
-        if (usuario === senha) {
+        if (usuario.includes(senha) && senha != "") {
             res.send('Usuário possui permissão de acesso');
             } else {
             res.send('Usuário não possui permissão de acesso');
