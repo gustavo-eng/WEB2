@@ -1,0 +1,12 @@
+
+function inversorDeData(data) {
+    let parametro = data.toString().split('').reverse();
+    let resultado = parametro.join('') 
+    // parametro.word.forEach(element => {
+    //     resultado += element
+    // })
+    return resultado;
+}
+
+module.exports = {inversorDeData};
+
