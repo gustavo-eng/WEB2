@@ -135,8 +135,6 @@ const wordList = [
       count++;
     }
     return isWords ? text.trim() : text.trim().substring(0, length);
-    // .trim() -> corta os espacos das extremidades. 
-    // .substring() -> faz o fatiamento de strings. 
   }
   
   app.get('/random/random-text', (req, res) => {

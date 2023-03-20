@@ -1,4 +1,3 @@
-const { text } = require('express');
 const express = require('express')
 const app = express() 
 const port = 5555;
@@ -94,57 +93,24 @@ Crie  uma rota para gerar textos aleatórios. O usuário informa por parâmetro 
     
     */ 
    
-// const listaDePalavras = ['Gustavo', 'Alexandre', 'Dias', 'Computacao', 'Engenharia ', 'TI', 'SA', 'Desenvolve', 'Escreve', 
-// 'instala']
+const listaDePalavras = ['Gustavo', 'Alexandre', 'Dias', 'Computacao', 'Engenharia ', 'TI', 'SA', 'Desenvolve', 'Escreve', 
+'instala']
 
-// function generateRandomText(tamanho, numWords) {
-//        let texto = '';
-//        let count = 0 ;
+function generateRandomText(tamanho, numWords) {
+       let text = '';
+       let count = 0 ;
 
-//        console.log('Dentro da funcao ')
-//        while(count < numWords) {
+       while(count < numWords) {
+           let indexRandomico = Math.floor(Math.random() * listaDePalavras.length);
+           let palavra = listaDePalavras[indexRandomico];
+           text += palavra + ' ';
+           count++;
+       }
 
-//            let indexRandomico = Math.floor(Math.random() * listaDePalavras.length);
-//            let palavra = listaDePalavras[indexRandomico];
-//            texto += palavra;
-//            count++;
-//        }
-
-// }
-// app.get('/atividade4/txt/random', (req, res) => {
-//     const tamanho = parseInt(req.query.tamanho)
-//     const texto = generateRandomText(tamanho, listaDePalavras)
-//     res.send(`<p> Tamanho  ${tamanho} texto ${listaDePalavras}</p>`)
-   
-// })
-
-const wordList = [
-    'Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
-    'adipiscing', 'elit', 'sed', 'do', 'eiusmod', 'tempor',
-    'incididunt', 'ut', 'labore', 'et', 'dolore', 'magna', 'aliqua.'
-  ];
-  
-  function generateRandomText(length, isWords) {
-    let text = '';
-    let count = 0;
-    const max = isWords ? length : length / 5; // assume 5 characters per word
-    while (count < max) { 
-      const randomIndex = Math.floor(Math.random() * wordList.length);
-      const word = wordList[randomIndex];
-      text += word + ' ';
-      count++;
-    }
-    return isWords ? text.trim() : text.trim().substring(0, length);
-    // .trim() -> corta os espacos das extremidades. 
-    // .substring() -> faz o fatiamento de strings. 
-  }
-  
-  app.get('/random/random-text', (req, res) => {
-    const length = parseInt(req.query.length);
-    const isWords = req.query.isWords === 'true';
-    const text = generateRandomText(length, isWords);
-    res.send(text);
-  });
+}
+app.get('/atividade4/txt/random', (req, res) => {
+    res.send('<p> Texto aleatorio aqui </p>');
+})
 app.listen(port, () => console.log('Server running in ' + port + ' port'))
 
 /*
