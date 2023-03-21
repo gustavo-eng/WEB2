@@ -39,7 +39,6 @@ const listaWord = ['gustavo', 'alexandre', 'Dias', 'ipsumm', 'teste', 'desenvolv
       text += word + ' ';
       count++;
     }
-    console.log(' \n  Quebra de linha \n  ')
     console.log('Dentro de generateRandomText --> '+ text)
     return isWords ? text.trim() : text.trim().substring(0, length);
     // .trim() -> corta os espacos das extremidades. 

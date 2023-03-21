@@ -94,14 +94,33 @@ Crie  uma rota para gerar textos aleatórios. O usuário informa por parâmetro 
     
 */ 
 
- 
-app.get('/random/random-text', (req, res) => {
+const wordList = [
+    'Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
+    'adipiscing', 'elit', 'sed', 'do', 'eiusmod', 'tempor',
+    'incididunt', 'ut', 'labore', 'et', 'dolore', 'magna', 'aliqua.'
+];
+  
+  function generateRandomText(length, isWords) {
+    let text = '';
+    let count = 0;
+    const max = isWords ? length : length / 5; // assume 5 characters per word
+    while (count < max) { 
+      const randomIndex = Math.floor(Math.random() * wordList.length);
+      const word = wordList[randomIndex];
+      text += word + ' ';
+      count++;
+    }
+    return isWords ? text.trim() : text.trim().substring(0, length);
+    // .trim() -> corta os espacos das extremidades. 
+    // .substring() -> faz o fatiamento de strings. 
+  }
+  
+  app.get('/random/random-text', (req, res) => {
     const length = parseInt(req.query.length);
-    const isWords = req.query.isWords === true;
-    const text = funcoes.generateRandomText(length, isWords)
-    console.log('Dentro de rotas usando funcao externa  --> '+ text)
+    const isWords = req.query.isWords === 'true';
+    const text = generateRandomText(length, isWords);
     res.send(text);
-});
+  });
 /*
   Crie  uma rota para gerar textos aleatórios. O usuário informa por parâmetro (livre
     escolha) o número de caracteres ou o número de palavras e o sistema gera a partir de
@@ -119,7 +138,7 @@ app.get('/aleatorio/texto', (req, res) => {
         while(count < tamanho) {
           let indiceRandomico = Math.floor(Math.random() * listaWord.length);
           texto += listaWord[indiceRandomico];
-          console.log('Texto dentro de if(isWord) --> '+ texto)
+          console.log('Texto dentro de if(isWord)')
           count++;
         }
        } 
@@ -142,5 +161,17 @@ app.get('/aleatorio/texto', (req, res) => {
    res.send(`Exemplo ${text2} !!!`)
 })
 
+/*
+function generateRandomText(length, isWords) {
+    let text = '';
+    let count = 0;
+    const max = isWords ? length : length / 5; // assume 5 characters per word
+    while (count < max) { 
+      const randomIndex = Math.floor(Math.random() * wordList.length);
+      const word = wordList[randomIndex];
+      text += word + ' ';
+      count++;
+    }
+*/
 app.listen(port, () => console.log('Server running in ' + port + ' port'))
 

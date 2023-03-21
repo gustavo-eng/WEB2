@@ -92,55 +92,39 @@ Crie  uma rota para gerar textos aleatórios. O usuário informa por parâmetro 
     um conjunto de palavras pré-definidas um texto aleatório atendendo ao que foi
     solicitado.
     
-*/ 
+    */ 
 
- 
-app.get('/random/random-text', (req, res) => {
-    const length = parseInt(req.query.length);
-    const isWords = req.query.isWords === true;
-    const text = funcoes.generateRandomText(length, isWords)
-    console.log('Dentro de rotas usando funcao externa  --> '+ text)
-    res.send(text);
-});
-/*
-  Crie  uma rota para gerar textos aleatórios. O usuário informa por parâmetro (livre
-    escolha) o número de caracteres ou o número de palavras e o sistema gera a partir de
-    um conjunto de palavras pré-definidas um texto aleatório atendendo ao que foi
-    solicitado.
-    
-*/ 
-
-const listaWord = ['gustavo', 'alexandre', 'Dias', 'ipsumm', 'teste', 'desenvolvedor', 'web2', 'correr']
-app.get('/aleatorio/texto', (req, res) => {
-    function generate(tamanho, isWord) {
-      let texto = '';
-      let count = 0;
-      if (isWord) {
-        while(count < tamanho) {
-          let indiceRandomico = Math.floor(Math.random() * listaWord.length);
-          texto += listaWord[indiceRandomico];
-          console.log('Texto dentro de if(isWord) --> '+ texto)
-          count++;
-        }
-       } 
-       //else if(!isWord) {
-          // while(count < tamanho) {
-          //   let index = Math.floor(Math.random() * listaWord.length);
-          //   let vetTexto = []
-          //   vetTexto = listaWord[index].split('');
-          //   texto += vetTexto[index]
-          //   count++;
-          // }
-       //}
-
+const wordList = [
+    'Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
+    'adipiscing', 'elit', 'sed', 'do', 'eiusmod', 'tempor',
+    'incididunt', 'ut', 'labore', 'et', 'dolore', 'magna', 'aliqua.'
+];
+  
+  function generateRandomText(length, isWords) {
+    let text = '';
+    let count = 0;
+    const max = isWords ? length : length / 5; // assume 5 characters per word
+    while (count < max) { 
+      const randomIndex = Math.floor(Math.random() * wordList.length);
+      const word = wordList[randomIndex];
+      text += word + ' ';
+      count++;
     }
-    let tamanho = parseInt(req.query.tamanho);
-    let isWords = req.query.isWords === true;
-    let text2 = generate(tamanho, isWords);
-    console.log(text2)
+    return isWords ? text.trim() : text.trim().substring(0, length);
+    // .trim() -> corta os espacos das extremidades. 
+    // .substring() -> faz o fatiamento de strings. 
+  }
+  
+  app.get('/random/random-text', (req, res) => {
+    const length = parseInt(req.query.length);
+    const isWords = req.query.isWords === 'true';
+    const text = generateRandomText(length, isWords);
+    res.send(text);
+  });
 
-   res.send(`Exemplo ${text2} !!!`)
+const listaPalavrass = ['gustavo', 'alexandre', 'Dias', 'ipsumm']
+app.get('/aleatorio/texto', (req, res) => {
+   res.send(`<p> Teestandooooo </p>`)
 })
-
 app.listen(port, () => console.log('Server running in ' + port + ' port'))
 
