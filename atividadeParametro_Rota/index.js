@@ -102,45 +102,25 @@ app.get('/random/random-text', (req, res) => {
     console.log('Dentro de rotas usando funcao externa  --> '+ text)
     res.send(text);
 });
-/*
-  Crie  uma rota para gerar textos aleatórios. O usuário informa por parâmetro (livre
-    escolha) o número de caracteres ou o número de palavras e o sistema gera a partir de
-    um conjunto de palavras pré-definidas um texto aleatório atendendo ao que foi
-    solicitado.
+
+/* 
+05 -- Crie uma rota que receba um número indeterminado de valores numéricos, informado
+por GET e informe qual a média dos valores recebidos.
+*/
+
+app.get('/atividade5/numeroIndeterminado', (req, res) => {
+    let numeros =  []
+    numeros.push(req.query.numeros)
+    let listNumeros = numeros
+    let media = 0; 
+    let soma = 0;
     
-*/ 
-
-const listaWord = ['gustavo', 'alexandre', 'Dias', 'ipsumm', 'teste', 'desenvolvedor', 'web2', 'correr']
-app.get('/aleatorio/texto', (req, res) => {
-    function generate(tamanho, isWord) {
-      let texto = '';
-      let count = 0;
-      if (isWord) {
-        while(count < tamanho) {
-          let indiceRandomico = Math.floor(Math.random() * listaWord.length);
-          texto += listaWord[indiceRandomico];
-          console.log('Texto dentro de if(isWord) --> '+ texto)
-          count++;
-        }
-       } 
-       //else if(!isWord) {
-          // while(count < tamanho) {
-          //   let index = Math.floor(Math.random() * listaWord.length);
-          //   let vetTexto = []
-          //   vetTexto = listaWord[index].split('');
-          //   texto += vetTexto[index]
-          //   count++;
-          // }
-       //}
-
-    }
-    let tamanho = parseInt(req.query.tamanho);
-    let isWords = req.query.isWords === true;
-    let text2 = generate(tamanho, isWords);
-    console.log(text2)
-
-   res.send(`Exemplo ${text2} !!!`)
+    listNumeros[0].forEach(elemento => {
+        soma += parseFloat(elemento)    
+    })
+    media = soma/listNumeros[0].length
+    
+    res.send(`<p> Media = ${media} </p>`)
 })
-
 app.listen(port, () => console.log('Server running in ' + port + ' port'))
 
