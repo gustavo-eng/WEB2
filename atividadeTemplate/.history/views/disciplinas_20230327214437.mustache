@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Disciplinas </title>
+</head>
+<body>
+    <h1> Disciplinas Matriculadas </h1>
+    {{#disciplinas}}
+        <p> {{name}} </p>
+    {{/disciplinas}}
+    <h2>Paginas </h2>
+    <a href='/'> Vai para a rota '/' </a> <br>
+    <a href='/midia'> Vai para a rota '/midia' </a>  <br>
+    <a href='/disciplinas/'+{{name}}> Vai para a rota '/disciplinas' </a> 
+
+</body>
+</html>
