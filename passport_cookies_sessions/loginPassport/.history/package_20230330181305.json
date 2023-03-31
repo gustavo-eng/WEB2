@@ -1,0 +1,18 @@
+{
+  "name": "loginpassport",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "mustache": "^4.2.0",
+    "nodemon": "^2.0.22",
+    "passport-local": "^1.0.0"
+  }
+}
