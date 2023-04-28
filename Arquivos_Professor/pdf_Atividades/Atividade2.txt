@@ -1,0 +1,10 @@
+Desenvolva uma página Web pessoal utilizando Node e Express.js com as seguintes rotas:
+
+/ - Página inicial (contém links para as demais páginas)
+/cv - Página com seu currículo profissional
+/disciplinas - Página que lista as disciplinas que você está cursando neste semestre
+/disciplinas/nome - Mostra um resumo da disciplina selecionada
+/midia - Página com links das suas redes sociais, fotos e trabalhos artisticos que eventualmente você produz
+Observação: é necesário utilizar um mecanismo de template.
+
+Enviar apenas a pasta do projeto com o código fonte ou um arquivo contendo o link do repositório (não enviar os arquivos dos módulos)

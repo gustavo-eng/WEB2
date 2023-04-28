@@ -1,8 +1,0 @@
-Middlewares em nivel de aplicacao usa "app.use(func...)" 
-
-Se errar na sequencia, os middlewares n faz sentido ?? 
-Programacao sequencial 
-
-
-
- 

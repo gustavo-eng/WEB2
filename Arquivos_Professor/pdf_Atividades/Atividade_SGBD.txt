@@ -1,0 +1,9 @@
+Utilizando o projeto de exemplo como modelo, implemente uma API para CRUD de algum item de sua escolha (ex. pessoas, produtos, músicas, disciplina, etc) utilizando uma SGBD relacional de sua escolha utilizando a biblioteca Sequelize.
+
+Os requisitos compreendem:
+
+listar todos
+buscar por ID
+Inserir
+Alterar
+Excluir
