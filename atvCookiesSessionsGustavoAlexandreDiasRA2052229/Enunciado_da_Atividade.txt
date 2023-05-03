@@ -1,0 +1,7 @@
+Crie uma aplicação web com um formulário de login e gerencie a sessão do usuário, a aplicação deve ter as seguintes rotas:
+
+/ - Exibe um formulário de login com usuário e senha e um campo checkbox que se selecionado irá lembrar o nome do usuário
+/login - Recebe um nome de usuário e senha (nome do usuário ao contrário) e cria uma sessão
+/logout - Invalida a sessão do usuário
+/intranet - Permite o acesso apenas para usuários logados, permite o usuário editar o seu nome da sessão
+/salvanome - Salva o nome do usuário que será exibido na página de intranet, apenas para usuários logados
