@@ -14,7 +14,7 @@ const sportRoute = require("./control/EsportAPI")
 
 app.use("/books", require("./control/BookAPI"))
 
-app.use("/sports", sportRoute)
+app.use("/sport", sportRoute)
 
 
 app.listen(port, () =>  console.log(`Listenning in ${port} port  ...`))

@@ -10,11 +10,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(require('./helpers/mongo'))
 
-const sportRoute = require("./control/EsportAPI")
-
 app.use("/books", require("./control/BookAPI"))
-
-app.use("/sports", sportRoute)
-
 
 app.listen(port, () =>  console.log(`Listenning in ${port} port  ...`))

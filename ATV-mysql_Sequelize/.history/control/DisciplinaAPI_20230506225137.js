@@ -44,7 +44,7 @@ router.get("/:codigo", (req, res) => {
         })     
 })
 
-
+// atualizar -- a fazer 
 router.put("/:codigo", (req, res) => {
     const { codigo } = req.params
     const { nome, professor, dependencia} = req.body

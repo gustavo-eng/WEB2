@@ -28,7 +28,7 @@ const DisciplinaModel = sequelize.define('Disciplina',
     {
         tableName: 'Disciplinas'
     }
-
+      
 );
 
 export default DisciplinaModel.sync();
@@ -66,7 +66,6 @@ const CRUD = {
         await disciplina.save()
         return disciplina
     }, 
-    //model/Disciplina.js (criada a tabela)
     delete: async (codigo) => {
         const disciplina = await DisciplinaModel.findOne({ where: { codigo: codigo } });
         return disciplina.destroy()

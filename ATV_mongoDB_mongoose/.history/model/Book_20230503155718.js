@@ -7,11 +7,13 @@ const BookSchema = new mongoose.Schema({
     ano: Number
 })
 
-
+// teste 
+const kittySchema = new mongoose.Schema({
+    nome: String,
+    idade: Number,
+})
 
 const BookModel = mongoose.model("Book", BookSchema)
-
-
 /*
 .lean() 
 serve para trazer documentos em sua forma bruta 
@@ -21,7 +23,7 @@ mais complexo e pesado.
 
 module.exports = {
     list: async function() {
-        const books = await BookModel.find({}).lean() 
+        const books = await BookModel.find({}).lean()
         return books
     },
     

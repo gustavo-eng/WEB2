@@ -21,7 +21,7 @@ mais complexo e pesado.
 
 module.exports = {
     list: async function() {
-        const books = await BookModel.find({}).lean() 
+        const books = await BookModel.find({}).lean()
         return books
     },
     

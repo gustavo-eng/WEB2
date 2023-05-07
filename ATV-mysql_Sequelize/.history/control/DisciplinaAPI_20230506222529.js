@@ -3,12 +3,9 @@ const express = require("express");
 const router = express.Router();
 
 const {sucess, fail} = require("../helpers/resposta");
-
 const DisciplinaDAO = require("../model/Disciplina");
 
 
-
-// -------------------------------------------------------
 router.get("/",  (req, res) => {
     DisciplinaDAO.list().then((disciplinas) => {
         res.json(sucess(disciplinas, "list"))
@@ -44,7 +41,7 @@ router.get("/:codigo", (req, res) => {
         })     
 })
 
-
+// atualizar -- a fazer 
 router.put("/:codigo", (req, res) => {
     const { codigo } = req.params
     const { nome, professor, dependencia} = req.body

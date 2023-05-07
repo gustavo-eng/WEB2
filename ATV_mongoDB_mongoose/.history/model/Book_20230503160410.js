@@ -7,9 +7,15 @@ const BookSchema = new mongoose.Schema({
     ano: Number
 })
 
-
+// teste 
+const kittySchema = new mongoose.Schema({
+    nome: String,
+    idade: {type: Number, min: 15, max: 30, default: 22}
+})
 
 const BookModel = mongoose.model("Book", BookSchema)
+const Kitten = mongoose.model("Kitten", kittySchema)
+// A model is class in which we build documents 
 
 
 /*
@@ -21,7 +27,7 @@ mais complexo e pesado.
 
 module.exports = {
     list: async function() {
-        const books = await BookModel.find({}).lean() 
+        const books = await BookModel.find({}).lean()
         return books
     },
     

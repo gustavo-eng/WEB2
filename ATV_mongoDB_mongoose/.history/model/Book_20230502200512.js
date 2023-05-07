@@ -7,21 +7,11 @@ const BookSchema = new mongoose.Schema({
     ano: Number
 })
 
-
-
 const BookModel = mongoose.model("Book", BookSchema)
-
-
-/*
-.lean() 
-serve para trazer documentos em sua forma bruta 
-de objetos javascript ao inves de um formato Mongoose 
-mais complexo e pesado. 
-*/
 
 module.exports = {
     list: async function() {
-        const books = await BookModel.find({}).lean() 
+        const books = await BookModel.find({}).lean()
         return books
     },
     
