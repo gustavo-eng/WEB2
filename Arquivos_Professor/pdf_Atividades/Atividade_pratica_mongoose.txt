@@ -1,0 +1,9 @@
+Utilizando o projeto de exemplo como modelo, implemente uma API para CRUD de algum item de sua escolha (ex. pessoas, produtos, músicas, disciplina, etc) utilizando o MongoDB juntamente com a biblioteca Mongoose.
+
+Os requisitos compreendem:
+
+listar todos
+buscar por ID
+Inserir
+Alterar
+Excluir

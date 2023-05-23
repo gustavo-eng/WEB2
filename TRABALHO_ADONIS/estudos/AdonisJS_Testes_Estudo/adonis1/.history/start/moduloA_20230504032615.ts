@@ -1,0 +1,1 @@
+export const a = { nome: 'Gustavo', frameWork: 'Adonis'}

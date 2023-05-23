@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exemplo de requisição HTTP</title>
+  </head>
+  <body >
+    <script src="javascripts/taskcontrol.js"></script>
+    <h1>Lista de Esportes</h1>
+    <ul id="esportes"></ul>
+    <button type="submit">Enviar</button>
+    <button onClick="listarEsportes()">btn1</button>
+    <button onclick=listarEsportes() >Listar esportes </button>
+    <button onClick="imprimir()"> Imprimir </button>
+    <button onClick=imprimir2()> Imprimi2 </button>
+    {{! <script src="./public/javascripts/taskcontrol.js" type="module"></script> }}
+    {{! <script src="javascripts/taskcontrol.js" type="module"></script> }}
+    {{! <script src="../public/javascript/taskcontrol.js"></script> }}
+    <script>
+      function imprimir() {
+        console.log("Imprimir dentro de html ")
+      }
+    </script>
+  </body>
+</html> 
