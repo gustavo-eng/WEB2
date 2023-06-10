@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{! <link rel="stylesheet" href="../public/stylesheets/stylePrincipal.css"> }}
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2> Rota principal </h2>
+        <form method="POST" action="/" id="login">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario"><br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha"><br>
+        <button type="submit">Enviar</button>
+    </form>
+    </div>
+    <script>
+
+       // import taskService from "./taskservice";
+        window.addEventListener("load", async function() {
+    //atualizaTarefas()
+
+    // document.querySelector("form").addEventListener("submit", async function(evt) {
+    //     evt.preventDefault();
+    //     let hid = document.querySelector("#tid")
+    //     let hnome = document.querySelector("#tnome")
+    //     let resp;
+    //     if (hid.value) {
+    //         resp = await taskService.altera(hid.value, hnome.value, localStorage.getItem('token'));
+    //     } else {
+    //         resp = await taskService.novo(hnome.value, localStorage.getItem('token'));
+    //     }
+    //     if (resp.status) {
+    //         atualizaTarefas()
+    //         hid.value = '';
+    //         hnome.value = '';
+    //     }
+    // })
+
+    const form = document.getElementById('login');
+    // IDEAL SERIA USAR O o taskservice.login
+    form.addEventListener('submit', async function(e)  {
+        e.preventDefault(); // previne que o formulário seja enviado normalmente
+        console.log("ENTROU EM TASKCONTROL!!!!!!!!!!!!!!!!!")
+        const usuario = document.getElementById('usuario').value;
+        const senha = document.getElementById('senha').value;
+        const response = await taskService.login(usuario, senha)
+        console.log('Impressao do Response em taskcontrol -> ' + response)
+        console.log(response)
+        // verifica se a resposta foi bem sucedida
+        if (!response.status) {
+            throw new Error(`Erro ao enviar dados: ${response.status}`);
+        }
+
+        // extrai o token da resposta da API
+        //const data = await response.json();
+        const token = response.token;
+        // armazena o token no localStorage
+        localStorage.setItem('token', token);
+        if(response.status) {
+            window.location.href = '/task';
+        }
+        // redireciona para a página de /task, por exemplo
+    });
+
+    //const obj = await taskService.login('abc', 'teste')
+})
+
+    </script>
+    {{! <script src="javascripts/taskcontrol.js" type="module"></script> }}
+    {{! <script src="javascripts/taskcontrol.js" type="module"></script> }}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

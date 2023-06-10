@@ -1,0 +1,139 @@
+var express = require('express');
+var router = express.Router();
+const jwt = require('jsonwebtoken')
+
+
+const taskDAO = require('../model/Task')
+
+const controlaAcesso = (req, res, next) => {
+  const token = req.header('Custom-Header');
+
+  console.log('Dentro de controlaAcesso, variavel token --> ')
+  console.log(token)
+
+  jwt.verify(token, "A1B2", (err, decoded) => {
+    if (!err) {
+
+        req.usuario = decoded.user
+
+        console.log('decoded.user ---> ')
+        console.log(decoded.user)
+
+        return next()
+
+    } else {
+        res.status(403).json({status:false, msg:' Sem permissão de acesso '})
+    }
+
+  })
+
+}
+
+
+/* GET users listing. */
+// LISTA TODAS
+router.get('/', function(req, res, next) {
+  // res.send('respond with a resource');
+
+  taskDAO.list().then(tasks => {
+    res.json(tasks)
+    console.log("EITAA")
+    console.log(tasks)
+    tasks.forEach(task => {
+      // Acesse o atributo _id de cada task
+      const taskId = task._id.toString();
+
+      // Faça o que desejar com o valor do _id
+
+      // ...
+
+      // Por exemplo, você pode imprimir o _id no console
+      console.log(taskId);
+    });
+    let obj = taskDAO.getById(req.query.tid)
+    if( obj != null) {
+      console.log(`obj[obj.prioridade] --> ${obj[obj.prioridade]}`)
+		  obj[obj.prioridade] = true
+    }
+    res.render("index", {tasks: tasks, task: obj, _id: tasks._id.toString()})
+  })
+  .catch(err => {
+    console.log('Erro ao listar tarefas cadastradas no banco. Erro -->  ')
+    console.log(err)
+    res.status(500).json({msg: "Falha ao listar as tarefas "})
+  })
+
+
+
+});
+
+
+
+//POST NEW TASK
+router.post('/', (req, res) => {
+
+    const { nome, prioridade } = req.body
+
+    taskDAO.save(nome, prioridade)
+    .then(task => {
+      res.status(201).json(task)
+
+    }).catch(err => {
+      console.log('erro ao salvar tarefa, erro -->  ')
+      console.log(err)
+      res.status(500).send("Falha ao salvar ")
+
+    })
+
+})
+
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params
+
+  const  { nome, prioridade } = req.body
+
+  taskDAO.update(id, nome, prioridade)
+    .then(task => {
+      res.status(200).json(task)
+
+    }).catch(err => {
+      res.status(400).send("Erro ao atulizar tarefa ")
+    } )
+
+})
+// require('../public/javascripts/taskcontrol')
+
+router.get("/:id", (req, res) => {
+  const { id } = req.params
+  taskDAO.getById(id)
+    .then(task => {
+      res.status(200).json(task)
+
+    }).catch( err => {
+      console.log("Erro de buscar tarefa por ID  ---> ")
+      console.log(err)
+      res.status(400).send("Erro ao buscar tarefa ")
+    })
+})
+
+
+router.delete("/:id", (req, res) => {
+  const { id } = req.params
+  taskDAO.delete(id).then(task => {
+    if(task) {
+      res.status(200).json(task)
+    }else {
+      res.status(400).send("Erro ao deletar tarefa ")
+    }
+
+  }).catch(err => console.log(err))
+
+})
+
+module.exports = router;
+
+
+
+
+
