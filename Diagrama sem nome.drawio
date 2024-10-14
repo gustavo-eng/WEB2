@@ -1,9 +1,57 @@
-<mxfile host="app.diagrams.net" modified="2024-10-14T00:37:17.620Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.0.6" etag="hHlltBtFfw0g7sshXEkR" type="github">
+<mxfile host="app.diagrams.net" modified="2024-10-14T01:03:18.596Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" etag="B7cK-JgEuKZ3Gtc5pylK" version="24.0.6" type="github">
   <diagram name="Página-1" id="f_UOMYFLyi_opNfmLtu-">
-    <mxGraphModel>
+    <mxGraphModel dx="1154" dy="509" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="REbN34QUnOf62cX9toE0-1" value="Academia" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="210" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-4" value="Efetuar Login" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="90" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-6" value="Visualizar status de pagamentos dos alunos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-8" value="Gerenciar Perfil" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="210" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-17" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="REbN34QUnOf62cX9toE0-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="290" as="sourcePoint" />
+            <mxPoint x="370" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-18" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="REbN34QUnOf62cX9toE0-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="154" as="sourcePoint" />
+            <mxPoint x="370" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-20" value="" style="endArrow=none;html=1;rounded=0;exitX=0.015;exitY=0.603;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="REbN34QUnOf62cX9toE0-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500.4999999999998" y="124.80000000000007" as="sourcePoint" />
+            <mxPoint x="430" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-21" value="" style="endArrow=none;html=1;rounded=0;entryX=0.004;entryY=0.452;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="REbN34QUnOf62cX9toE0-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="240" as="sourcePoint" />
+            <mxPoint x="520" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-22" value="Aceitar solicitações de alunos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="320" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-23" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" target="REbN34QUnOf62cX9toE0-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="240" as="sourcePoint" />
+            <mxPoint x="520" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="REbN34QUnOf62cX9toE0-26" value="Gerenciar Alunos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="90" width="100" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
